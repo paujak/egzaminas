@@ -17,6 +17,10 @@ public class KlientasService {
 	public KlientasDTO gautiKlienta(String id) {
 		return null;
 	}
+
+	public KlientasDTO registruotiNaujaKlienta(KlientasDTO klientasDTO) {
+		return null;
+	}
 	
 	
 

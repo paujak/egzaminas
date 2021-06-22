@@ -16,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 
 import it.akademija.paujak.sandelys.enums.KlientoTipas;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "klientai",
 uniqueConstraints = { @UniqueConstraint(columnNames = { "vardas", "pavarde", "gimimoData" }) })
