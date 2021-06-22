@@ -1,47 +1,18 @@
-package it.akademija.paujak.sandelys.entity;
+package it.akademija.paujak.sandelys.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.Constraint;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import it.akademija.paujak.sandelys.enums.KlientoTipas;
 
-@SuppressWarnings("serial")
-@Entity
-@Table(name = "klientai",
-uniqueConstraints = { @UniqueConstraint(columnNames = { "vardas", "pavarde", "gimimoData" }) })
-public class Klientas implements Serializable{
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public class KlientasDTO {
+
 	private Long id;
-	@NotNull
 	private String vardas;
-	@NotNull
 	private String pavarde;
-	@NotNull
 	private LocalDate gimimoData;
-	@NotNull
 	private String telNumeris;
-	@NotNull
 	private KlientoTipas tipas;
-	@OneToMany(mappedBy = "klientas", cascade = CascadeType.ALL)
-	private List<Inventorius> inventoriausSarasas;
 	
-	public Klientas() {
-		super();
-	}
 	public Long getId() {
 		return id;
 	}
@@ -78,12 +49,6 @@ public class Klientas implements Serializable{
 	public void setTipas(KlientoTipas tipas) {
 		this.tipas = tipas;
 	}
-	public List<Inventorius> getInventoriausSarasas() {
-		return inventoriausSarasas;
-	}
-	public void setInventoriausSarasas(List<Inventorius> inventoriausSarasas) {
-		this.inventoriausSarasas = inventoriausSarasas;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -104,7 +69,7 @@ public class Klientas implements Serializable{
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Klientas other = (Klientas) obj;
+		KlientasDTO other = (KlientasDTO) obj;
 		if (gimimoData == null) {
 			if (other.gimimoData != null) {
 				return false;

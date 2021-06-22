@@ -15,18 +15,20 @@ import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "inventorius")
 public class Inventorius implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "Inventoriaus pavadinimas būtinas")
+	@NotNull(message = "Inventoriaus pavadinimas būtinas")
 	private String pavadinimas;
-	@NotBlank(message = "Būtina nurodyti inventoriaus svorį")
+	@NotNull(message = "Būtina nurodyti inventoriaus svorį")
 	private double svoris;
-	@NotBlank(message = "Būtina nurodyti inventoriaus sektorių (1-40)")
+	@NotNull(message = "Būtina nurodyti inventoriaus sektorių (1-40)")
 	@Min(value = 1, message= "Negali būti mažesnis už 1")
 	@Max(value = 40, message = "Negali būti didesnis už 40")
 	private int sektorius;
