@@ -6,11 +6,19 @@ import it.akademija.paujak.sandelys.enums.KlientoTipas;
 
 public class KlientasDTO {
 
+	private Long id;
 	private String vardas;
 	private String pavarde;
 	private LocalDate gimimoData;
 	private String telNumeris;
 	private KlientoTipas tipas;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getVardas() {
 		return vardas;
 	}

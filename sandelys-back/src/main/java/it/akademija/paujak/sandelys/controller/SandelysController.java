@@ -1,5 +1,7 @@
 package it.akademija.paujak.sandelys.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import it.akademija.paujak.sandelys.enums.AtaskaitosTipas;
 import it.akademija.paujak.sandelys.model.AtaskaitosDTO;
 import it.akademija.paujak.sandelys.model.InventoriusDTO;
-import it.akademija.paujak.sandelys.model.InventoriusListDTO;
-import it.akademija.paujak.sandelys.model.KlientaiListDTO;
 import it.akademija.paujak.sandelys.model.KlientasDTO;
 import it.akademija.paujak.sandelys.service.AtaskaitosService;
 import it.akademija.paujak.sandelys.service.InventoriusService;
@@ -40,12 +40,12 @@ public class SandelysController {
 	}
 	
 	@GetMapping(value = "/klientai/")
-	public ResponseEntity<KlientaiListDTO> gautiVisusKlientus(){
+	public ResponseEntity<List<KlientasDTO>> gautiVisusKlientus(){
 		return ResponseEntity.ok(klientasService.gautiVisusKlientus());
 	}
 	
 	@GetMapping(value = "/klientai/{id}")
-	public ResponseEntity<KlientasDTO> gautiKlienta(@PathVariable String id){
+	public ResponseEntity<KlientasDTO> gautiKlienta(@PathVariable Long id){
 		return ResponseEntity.ok(klientasService.gautiKlienta(id));
 	}
 	
@@ -55,7 +55,7 @@ public class SandelysController {
 	}
 	
 	@GetMapping(value = "/inventorius/{id}")
-	public ResponseEntity<InventoriusListDTO> gautiKlientoInventoriu(@PathVariable String id){
+	public ResponseEntity<List<InventoriusDTO>> gautiKlientoInventoriu(@PathVariable Long id){
 		return ResponseEntity.ok(inventoriusService.gautiKlientoInventoriu(id));
 	}
 	

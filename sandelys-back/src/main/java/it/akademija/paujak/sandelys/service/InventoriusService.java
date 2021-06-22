@@ -1,14 +1,15 @@
 package it.akademija.paujak.sandelys.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import it.akademija.paujak.sandelys.model.InventoriusDTO;
-import it.akademija.paujak.sandelys.model.InventoriusListDTO;
 
 @Service
 public class InventoriusService {
 
-	public InventoriusListDTO gautiKlientoInventoriu(String id) {
+	public List<InventoriusDTO> gautiKlientoInventoriu(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

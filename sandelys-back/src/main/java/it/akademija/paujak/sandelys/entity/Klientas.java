@@ -12,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.Constraint;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import it.akademija.paujak.sandelys.enums.KlientoTipas;
 
@@ -24,15 +26,15 @@ public class Klientas implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank
+	@NotNull
 	private String vardas;
-	@NotBlank
+	@NotNull
 	private String pavarde;
-	@NotBlank
+	@NotNull
 	private LocalDate gimimoData;
-	@NotBlank
+	@NotNull
 	private String telNumeris;
-	@NotBlank
+	@NotNull
 	private KlientoTipas tipas;
 	@OneToMany(mappedBy = "klientas", cascade = CascadeType.ALL)
 	private List<Inventorius> inventoriausSarasas;
